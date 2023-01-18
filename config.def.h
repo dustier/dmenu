@@ -36,7 +36,7 @@ static char *fonts[] =
 static const char *fonts[] =
 #endif // XRESOURCES_PATCH
 {
-	"monospace:size=10"
+	"SFMono Nerd Font:size=20"
 };
 #endif // PANGO_PATCH
 #if MANAGED_PATCH
@@ -115,14 +115,14 @@ char *colors[][2] = {
 	#endif // EMOJI_HIGHLIGHT_PATCH
 };
 /* -l option; if nonzero, dmenu uses vertical list with given number of lines */
-static unsigned int lines      = 0;
+static unsigned int lines      = 10;
 #if GRID_PATCH
 /* -g option; if nonzero, dmenu uses a grid comprised of columns and lines */
-static unsigned int columns    = 0;
+static unsigned int columns    = 1;
 #endif // GRID_PATCH
 #if LINE_HEIGHT_PATCH
 static unsigned int lineheight = 0;         /* -h option; minimum height of a menu line     */
-static unsigned int min_lineheight = 8;
+static unsigned int min_lineheight = 5;
 #endif // LINE_HEIGHT_PATCH
 #if NAVHISTORY_PATCH
 static unsigned int maxhist    = 15;
@@ -140,7 +140,7 @@ static const char worddelimiters[] = " ";
 
 #if BORDER_PATCH
 /* Size of the window border */
-static unsigned int border_width = 0;
+static unsigned int border_width = 5;
 #endif // BORDER_PATCH
 
 #if PREFIXCOMPLETION_PATCH

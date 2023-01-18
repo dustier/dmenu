@@ -17,18 +17,18 @@
  * or xyw patches, to make the menu stand out from similarly coloured windows.
  * http://tools.suckless.org/dmenu/patches/border/
  */
-#define BORDER_PATCH 0
+#define BORDER_PATCH 1
 
 /* This patch makes dmenu case-insensitive by default, replacing the
  * case-insensitive -i option with a case sensitive -s option.
  * http://tools.suckless.org/dmenu/patches/case-insensitive/
  */
-#define CASEINSENSITIVE_PATCH 0
+#define CASEINSENSITIVE_PATCH 1
 
 /* This patch centers dmenu in the middle of the screen.
  * https://tools.suckless.org/dmenu/patches/center/
  */
-#define CENTER_PATCH 0
+#define CENTER_PATCH 1
 
 /* Minor patch to enable the use of Ctrl+v (XA_PRIMARY) and Ctrl+Shift+v (CLIPBOARD) to paste.
  * By default dmenu only supports Ctrl+y and Ctrl+Shift+y to paste.
@@ -55,13 +55,13 @@
  * to be used together with the fuzzymatch patch.
  * https://tools.suckless.org/dmenu/patches/fuzzyhighlight/
  */
-#define FUZZYHIGHLIGHT_PATCH 0
+#define FUZZYHIGHLIGHT_PATCH 1
 
 /* This patch adds support for fuzzy-matching to dmenu, allowing users to type non-consecutive
  * portions of the string to be matched.
  * https://tools.suckless.org/dmenu/patches/fuzzymatch/
  */
-#define FUZZYMATCH_PATCH 0
+#define FUZZYMATCH_PATCH 1
 
 /* Adds fzf-like functionality for dmenu.
  * Refer to https://github.com/DAFF0D11/dafmenu/ for documentation and example use cases.
@@ -74,7 +74,7 @@
  * G columns * L lines grid.
  * https://tools.suckless.org/dmenu/patches/grid/
  */
-#define GRID_PATCH 0
+#define GRID_PATCH 1
 
 /* This patch adds the ability to move left and right through a grid.
  * This patch depends on the grid patch.
@@ -113,7 +113,7 @@
  * integrate dmenu with other UI elements that require a particular vertical size.
  * http://tools.suckless.org/dmenu/patches/line-height/
  */
-#define LINE_HEIGHT_PATCH 0
+#define LINE_HEIGHT_PATCH 1
 
 /* This patch adds a -wm flag which sets override_redirect to false; thus letting your window
  * manager manage the dmenu window.

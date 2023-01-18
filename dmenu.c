@@ -1076,7 +1076,7 @@ keypress(XKeyEvent *ev)
 		default:
 			return;
 		}
-	} else if (ev->state & Mod1Mask) {
+	} else if (ev->st0te & Mod1Mask) {
 		switch(ksym) {
 		case XK_b:
 			movewordedge(-1);
@@ -1336,11 +1336,15 @@ insert:
 		}
 		memset(text + len, '\0', strlen(text) - len);
 		#else
+
+        // TODO: press TAB to select items recursively
 		if (!sel)
 			return;
 		cursor = strnlen(sel->text, sizeof text - 1);
 		memcpy(text, sel->text, cursor);
 		text[cursor] = '\0';
+
+        // TODO: if press TAB to select items recursively, cannot `match()` on every TAB key-press
 		match();
 		#endif // PREFIXCOMPLETION_PATCH
 		break;
