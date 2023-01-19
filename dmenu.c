@@ -131,6 +131,9 @@ static int reject_no_match = 0;
 static size_t cursor;
 static struct item *items = NULL;
 static struct item *matches, *matchend;
+
+// sel: 当前光标在列表中选择的item
+// prev, cur, next: 上一页\本页\下一页的第一个item
 static struct item *prev, *curr, *next, *sel;
 static int mon = -1, screen;
 #if PRINTINDEX_PATCH
@@ -1314,6 +1317,8 @@ insert:
 			curr = next;
 			calcoffsets();
 		}
+        /* fprintf(stderr, "%s %s %s %s\n", sel->text, curr->text, next->text, prev->text); */
+        /* printf("1122%s %s", sel->text, curr->text); */
 		break;
 	case XK_Tab:
 		#if PREFIXCOMPLETION_PATCH
@@ -1337,15 +1342,23 @@ insert:
 		memset(text + len, '\0', strlen(text) - len);
 		#else
 
-        // TODO: press TAB to select items recursively
 		if (!sel)
 			return;
-		cursor = strnlen(sel->text, sizeof text - 1);
-		memcpy(text, sel->text, cursor);
-		text[cursor] = '\0';
+        
+        // before press TAB for the first time, text is not equal to sel->text,
+        // so current time press TAB, just copy sel->text to text
+        
+        if (!strcmp(text, sel->text) && sel->right) {
+            sel = sel->right;
+            if (sel == next) {
+                curr = next;
+                calcoffsets();
+            }
+        }
+        cursor = strnlen(sel->text, sizeof text - 1);
+        memcpy(text, sel->text, cursor);
+        text[cursor] = '\0';
 
-        // TODO: if press TAB to select items recursively, cannot `match()` on every TAB key-press
-		match();
 		#endif // PREFIXCOMPLETION_PATCH
 		break;
 	}
