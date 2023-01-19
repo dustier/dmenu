@@ -1076,7 +1076,7 @@ keypress(XKeyEvent *ev)
 		default:
 			return;
 		}
-	} else if (ev->st0te & Mod1Mask) {
+	} else if (ev->state & Mod1Mask) {
 		switch(ksym) {
 		case XK_b:
 			movewordedge(-1);
